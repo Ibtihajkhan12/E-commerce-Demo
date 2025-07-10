@@ -1,0 +1,137 @@
+body {
+  margin: 0;
+  background-color: #000;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+/* Main detail container */
+.detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 40px auto;
+  background-color: #111;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Product image */
+.detail img {
+  flex: 1;
+  max-width: 400px;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #555;
+  object-fit: contain;
+}
+
+/* Info box */
+.info {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  color: white;
+}
+
+.info h1 {
+  font-size: 2rem;
+  color: white;
+}
+
+.info p,
+.info ul li {
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.info strong {
+  color: #fff;
+}
+
+.info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .detail {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .detail img {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+.add-cart-btn {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #ff4747;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  width: fit-content;
+  transition: background 0.3s ease;
+}
+
+.add-cart-btn:hover {
+  background-color: #e63636;
+}
+
+
+
+
+
+.add-cart-btn {
+  margin-top: 20px;
+  background: #f90;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.add-cart-btn:hover {
+  background: #ffa500;
+}
+
+
+.add-to-cart-btn {
+  background-color: #e50914; /* Deeper red for modern look */
+  color: #fff;
+  padding: 14px 28px;
+  border: none;
+  margin-top: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  width: fit-content;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #ff1f3d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+.add-to-cart-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
