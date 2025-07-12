@@ -1,25 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
+import logo from "../context/logo.png";
 import "./Header.css";
 
 export default function Header({ setView }) {
   const navigate = useNavigate();
-  const { newItemCount } = useCart();
+  const { cartItems } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className="header">
-      <h1 className="logo" onClick={() => setView?.("home")}>Ecommerce Demo</h1>
+      <div className="logo" onClick={() => setView?.("home")}> 
+        <img src={logo} alt="Shop with Ibtihaj" style={{ height: "70px", cursor: "pointer" }} />
+      </div>
 
       <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
         <button onClick={() => setView?.("home")}>Home</button>
         <button onClick={() => setView?.("products")}>Products</button>
+
         <div className="cart-icon" onClick={() => navigate("/cart")}>
           <FaShoppingCart size={22} />
-          {newItemCount > 0 && (
-            <span className="cart-count-badge">{newItemCount}</span>
+          {cartItems.length > 0 && (
+            <span className="cart-count-badge">{cartItems.length}</span>
           )}
         </div>
       </nav>

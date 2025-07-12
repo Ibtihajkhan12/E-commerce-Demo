@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
-import Header from '../component/Header'; // ✅ Import reusable header
+import Header from '../component/Header'; 
 import './Home.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Footer from "../component/Footer"; // 👈 Add this at top
 
-// ✅ Products already defined — no change needed
+
+
 export const products = [
   {
     id: 1,
@@ -215,7 +217,115 @@ export const products = [
     minQty: 1,
     dimensions: "W: 30cm, H: 14cm, D: 10cm",
     warranty: "30 Days"
-  }
+  },
+  {
+  id: 17,
+  name: "Brown Leather Wallet",
+  description: "Stylish brown leather wallet with compact design and RFID protection.",
+  price: "$24.99",
+  brand: "WalletCraft",
+  category: "Accessories",
+  image: "https://images.unsplash.com/photo-1624538000860-24716b9050f2?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8d2FsbGV0fGVufDB8fDB8fHww",
+  stock: "In Stock",
+  minQty: 1,
+  dimensions: "W: 11cm, H: 9cm, D: 2cm",
+  warranty: "12 Months"
+},
+{
+  id: 18,
+  name: "Golden Aviator Sunglasses",
+  description: "UV-protected reflective aviator sunglasses with golden frame and sleek design.",
+  price: "$19.99",
+  brand: "SunMax",
+  category: "Accessories",
+  image: "https://images.unsplash.com/photo-1502767089025-6572583495f9?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHN1bmdsYXNzZXN8ZW58MHx8MHx8fDA%3D",
+  stock: "In Stock",
+  minQty: 1,
+  dimensions: "W: 14cm, H: 5cm, D: 3cm",
+  warranty: "6 Months"
+},
+{
+  id: 19,
+  name: "Pink Floral Perfume",
+  description: "Elegant floral fragrance in a pink glass bottle for a soft feminine touch.",
+  price: "$59.99",
+  brand: "TimeZone",
+  category: "Watches", // Keeping original category if needed, otherwise change to "Perfume"
+  image: "https://marketplace.canva.com/EAGSec-fmik/2/0/1600w/canva-pink-elegant-special-sale-perfume-instagram-post-Uvwn1uyqzaM.jpg",
+  stock: "In Stock",
+  minQty: 1,
+  dimensions: "W: 4.5cm, H: 4.5cm, D: 1.2cm",
+  warranty: "24 Months"
+},
+{
+  id: 20,
+  name: "Vintage Glass Perfume",
+  description: "Vintage-style perfume bottle with gold atomizer and decorative charm.",
+  price: "$49.99",
+  brand: "GearPro",
+  category: "Bags", // Keeping original if needed, or switch to "Perfume"
+  image: "https://www.shutterstock.com/image-photo/perfume-bottle-vintage-fragrance-on-600nw-2186852355.jpg",
+  stock: "In Stock",
+  minQty: 1,
+  dimensions: "W: 30cm, H: 45cm, D: 15cm",
+  warranty: "12 Months"
+},
+
+{
+  id: 21,
+  name: "Foldable Headphones",
+  description: "Compact and stylish foldable headphones with rich bass and clear sound.",
+  price: "$34.99",
+  brand: "SoundMax",
+  category: "Electronics",
+  image: "https://i5.walmartimages.com/seo/SoundPlay-Foldable-Wireless-Headphones-Bluetooth-Over-Ear-Headset-with-Built-in-Mic_7781a45d-3746-4e57-9448-ed352177f124.e514a94af242606cd9abd487ef2bf27f.png", 
+  stock: "In Stock",
+  minQty: 1,
+  dimensions: "W: 18cm, H: 20cm, D: 6cm",
+  warranty: "6 Months"
+},
+{
+  id: 22,
+  name: "Leather Office Bag",
+  description: "Professional leather office bag with padded laptop compartment.",
+  price: "$64.99",
+  brand: "OfficeLine",
+  category: "Bags",
+  image: "https://5.imimg.com/data5/SELLER/Default/2023/11/364113044/AV/LE/DQ/121719487/butterflytan01-500x500.jpg", 
+  stock: "In Stock",
+  minQty: 1,
+  dimensions: "W: 38cm, H: 28cm, D: 10cm",
+  warranty: "12 Months"
+},
+{
+  id: 23,
+  name: "Black Running Shoes",
+  description: "Lightweight and breathable running shoes for everyday training.",
+  price: "$49.99",
+  brand: "RunFlex",
+  category: "Shoes",
+  image: "https://www.shutterstock.com/image-photo/sport-shoes-isolated-on-white-600nw-2172869701.jpg", 
+  stock: "In Stock",
+  minQty: 1,
+  dimensions: "W: 30cm, H: 14cm, D: 10cm",
+  warranty: "9 Months"
+},
+{
+  id: 24,
+  name: "Stainless Steel Watch",
+  description: "Luxury stainless steel wristwatch with classic analog design.",
+  price: "$89.99",
+  brand: "LuxTime",
+  category: "Watches",
+  image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSePd6QCi-xqL4NtkK9aCpRdNhuwQbGqXnhA&s", 
+  stock: "In Stock",
+  minQty: 1,
+  dimensions: "W: 4.2cm, H: 4.2cm, D: 1.1cm",
+  warranty: "24 Months"
+}
+
+
+
 ];
 
 export default function Home() {
@@ -242,14 +352,20 @@ export default function Home() {
         {view === 'home' ? (
           <div className="slider-container">
             <Slider {...settings}>
-              {products.map((product) => (
-                <div key={product.id} className="slider-item">
-                  <img src={product.image} alt={product.name} />
-                  <h2>{product.name}</h2>
-                  <p>{product.description}</p>
-                </div>
-              ))}
-            </Slider>
+            {products.map((product) => (
+               <div
+      key={product.id}
+      className="slider-item"
+      onClick={() => navigate(`/product/${product.id}`)} // 👈 navigation added
+      style={{ cursor: "pointer" }}
+    >
+      <img src={product.image} alt={product.name} />
+      <h2>{product.name}</h2>
+      <p>{product.description}</p>
+    </div>
+  ))}
+</Slider>
+
           </div>
         ) : (
           <div className="product-grid">
@@ -267,6 +383,8 @@ export default function Home() {
           </div>
         )}
       </main>
+      <Footer />
     </div>
+    
   );
 }

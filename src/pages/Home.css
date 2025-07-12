@@ -10,7 +10,7 @@ header {
   padding: 1.5rem 2rem;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* 🟢 Pushes nav to the right */
+  justify-content: space-between; 
 }
 
 header h1 {
@@ -37,11 +37,10 @@ nav button:hover {
   text-decoration: underline;
 }
 
-/* Slider and product styles remain unchanged */
-
 .slider-container {
   max-width: 500px;
   margin: 3rem auto;
+  margin-top: 50px;
 }
 
 .slider-item {
@@ -54,6 +53,8 @@ nav button:hover {
   background-color: #1e1e1e;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  margin-top: 50px;
+
 }
 
 .slider-item img {

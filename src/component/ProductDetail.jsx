@@ -4,6 +4,10 @@ import './ProductDetail.css';
 import { products } from '../pages/Home';
 import Header from './Header';
 import { useCart } from '../context/CartContext';
+import Footer from "../component/Footer"; // 👈 Add this at top
+
+
+
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -15,6 +19,7 @@ export default function ProductDetail() {
   return (
     <>
       <Header />
+      
       <div className="detail">
         <img src={product.image} alt={product.name} />
         <div className="info">
@@ -34,6 +39,9 @@ export default function ProductDetail() {
           </button>
         </div>
       </div>
+      <Footer />
     </>
+    
   );
+  
 }
