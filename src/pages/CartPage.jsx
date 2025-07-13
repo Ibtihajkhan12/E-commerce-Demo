@@ -3,13 +3,13 @@ import { useCart } from "../context/CartContext";
 import Header from "../component/Header";
 import './CartPage.css';
 import { FaTrashAlt } from "react-icons/fa";
-import { products } from "../pages/Home"; // 📦 All products
+import { products } from "../pages/Home";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
-import Footer from "../component/Footer"; 
+import Footer from "../component/Footer";
 
 export default function CartPage() {
-  const { cartItems, removeFromCart, clearNewItemFlag } = useCart();
+  const { cartItems, removeFromCart, clearNewItemFlag, updateQuantity } = useCart();
 
   useEffect(() => {
     clearNewItemFlag();
@@ -17,7 +17,7 @@ export default function CartPage() {
 
   const totalPrice = cartItems.reduce((acc, item) => {
     const price = parseFloat(item.price.replace(/[^\d.]/g, ""));
-    return acc + price;
+    return acc + price * (item.quantity || 1);
   }, 0);
 
   const sliderSettings = {
@@ -29,25 +29,10 @@ export default function CartPage() {
     autoplay: true,
     autoplaySpeed: 3000,
     responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-        }
-      }
-    ]
+      { breakpoint: 1024, settings: { slidesToShow: 3 } },
+      { breakpoint: 768, settings: { slidesToShow: 2 } },
+      { breakpoint: 480, settings: { slidesToShow: 1 } },
+    ],
   };
 
   if (cartItems.length === 0) {
@@ -71,8 +56,10 @@ export default function CartPage() {
             <span>QUANTITY</span>
             <span>TOTAL</span>
           </div>
+
           {cartItems.map((item, index) => {
             const price = parseFloat(item.price.replace(/[^\d.]/g, ""));
+            const quantity = item.quantity || 1;
             return (
               <div className="cart-row" key={index}>
                 <div className="cart-product">
@@ -82,22 +69,30 @@ export default function CartPage() {
                     <p className="variant">{item.variant || 'Default'}</p>
                   </div>
                 </div>
+
                 <div className="cart-price">PKR {price.toLocaleString()}</div>
+
                 <div className="cart-qty">
-                  <input type="number" value={1} readOnly />
+                  <input
+                    type="number"
+                    min="1"
+                    value={quantity}
+                    onChange={(e) =>
+                      updateQuantity(index, Math.max(1, parseInt(e.target.value) || 1))
+                    }
+                  />
                 </div>
+
                 <div className="cart-total">
-                  PKR {price.toLocaleString()}
+                  PKR {(price * quantity).toLocaleString()}
                   <FaTrashAlt
                     className="cart-delete"
                     onClick={() => removeFromCart(index)}
                   />
                 </div>
               </div>
-              
             );
           })}
-          {/* <Footer /> */}
         </div>
 
         <div className="cart-right">
@@ -112,8 +107,8 @@ export default function CartPage() {
           </div>
         </div>
       </div>
-        
-         <div className="suggested-products">
+
+      <div className="suggested-products">
         <h2 style={{ color: "white", marginLeft: "500px" }}>Best Sellers</h2>
         <Slider {...sliderSettings}>
           {products.slice(0, 10).map((product) => (
@@ -130,9 +125,7 @@ export default function CartPage() {
         </Slider>
       </div>
 
-      {/* 🔻 Footer */}
       <Footer />
-
     </>
   );
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
-import logo from "../context/logo.png";
+import logo from "../Images/logo.png";
 import "./Header.css";
 
 export default function Header({ setView }) {

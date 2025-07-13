@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
 import Header from '../component/Header'; 
+import Footer from "../component/Footer";
+import BannerSlider from '../component/BannerSlider'; // ✅ Import banner
 import './Home.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Footer from "../component/Footer"; // 👈 Add this at top
-
-
 
 export const products = [
   {
@@ -323,9 +322,6 @@ export const products = [
   dimensions: "W: 4.2cm, H: 4.2cm, D: 1.1cm",
   warranty: "24 Months"
 }
-
-
-
 ];
 
 export default function Home() {
@@ -346,27 +342,30 @@ export default function Home() {
 
   return (
     <div className="app">
-      <Header setView={setView} /> {/* ✅ Use the reusable header */}
+      <Header setView={setView} />
 
       <main>
         {view === 'home' ? (
-          <div className="slider-container">
-            <Slider {...settings}>
-            {products.map((product) => (
-               <div
-      key={product.id}
-      className="slider-item"
-      onClick={() => navigate(`/product/${product.id}`)} // 👈 navigation added
-      style={{ cursor: "pointer" }}
-    >
-      <img src={product.image} alt={product.name} />
-      <h2>{product.name}</h2>
-      <p>{product.description}</p>
-    </div>
-  ))}
-</Slider>
+          <>
+            <BannerSlider /> {/* ✅ Only visible on home */}
 
-          </div>
+            <div className="slider-container">
+              <Slider {...settings}>
+                {products.map((product) => (
+                  <div
+                    key={product.id}
+                    className="slider-item"
+                    onClick={() => navigate(`/product/${product.id}`)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <img src={product.image} alt={product.name} />
+                    <h2>{product.name}</h2>
+                    <p>{product.description}</p>
+                  </div>
+                ))}
+              </Slider>
+            </div>
+          </>
         ) : (
           <div className="product-grid">
             {products.map((product) => (
@@ -383,8 +382,8 @@ export default function Home() {
           </div>
         )}
       </main>
+
       <Footer />
     </div>
-    
   );
 }

@@ -3,7 +3,7 @@ import { FaWhatsapp, FaInstagram, FaFacebookF, FaTwitter } from "react-icons/fa"
 import "./Footer.css";
 
 export default function Footer() {
-  const whatsappNumber = "923001234567"; // change to your number
+  const whatsappNumber = "+923001234567"; 
 
   return (
     <footer className="ecom-footer">
