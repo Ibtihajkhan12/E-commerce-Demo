@@ -107,24 +107,6 @@ export default function CartPage() {
           </div>
         </div>
       </div>
-
-      <div className="suggested-products">
-        <h2 style={{ color: "white", marginLeft: "500px" }}>Best Sellers</h2>
-        <Slider {...sliderSettings}>
-          {products.slice(0, 10).map((product) => (
-            <Link to={`/product/${product.id}`} key={product.id} style={{ textDecoration: "none" }}>
-              <div className="slider-card">
-                <img src={product.image} alt={product.name} className="slider-img" />
-                <div className="slider-info">
-                  <h4>{product.name}</h4>
-                  <p>{product.price}</p>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </Slider>
-      </div>
-
       <Footer />
     </>
   );

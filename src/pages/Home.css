@@ -1,108 +1,193 @@
- body {
-  background-color: #111;
-  color: white;
-  margin: 0;
-  font-family: sans-serif;
-}
-
-header {
-  background: #1a1a1a;
-  padding: 1.5rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; 
-}
-
-header h1 {
-  margin: 0;
-  font-size: 1.5rem;
-  color: white;
-}
-
-nav {
-  display: flex;
-  gap: 1rem;
-}
-
-nav button {
-  background: none;
-  border: none;
-  color: white;
-  font-weight: bold;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-nav button:hover {
-  text-decoration: underline;
-}
-
-.slider-container {
-  max-width: 500px;
-  margin: 3rem auto;
-  margin-top: 50px;
-}
-
-.slider-item {
-  display: flex !important;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+.home-main {
   padding: 1rem;
-  background-color: #1e1e1e;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(255,255,255,0.1);
-  margin-top: 50px;
-
 }
 
-.slider-item img {
-  width: 300px;
+.category-tile {
+  position: relative;
+  width: 100%;
   height: 300px;
-  object-fit: cover;
+  overflow: hidden;
+  margin-bottom: 2rem;
   border-radius: 10px;
-  margin-bottom: 1rem;
+}
+
+.category-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.category-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
 }
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
 }
 
 .product-card {
-  background: #1e1e1e;
+  border: 1px solid #ddd;
+  border-radius: 10px;
   padding: 1rem;
+  background-color: #fff;
   text-align: center;
-  border-radius: 12px;
-  transition: transform 0.2s ease;
-  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  margin-top: 40px;
 }
 
 .product-card:hover {
-  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
-.product-card img {
+.product-image {
   width: 100%;
-  height: 250px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.product-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+.product-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.3rem
+}
+
+.product-price {
+  color: #e91e63;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.featured-products-title{
+  margin-left: 450px;
+  margin-top: 60px;
+}
+
+
+
+.featured-products-title {
+   font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+}
+
+.category-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 0 20px 40px;
+}
+
+.category-card {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+  transform: scale(1.03);
+}
+
+.category-card-image {
+  width: 390px;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.category-card-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  padding: 12px;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+
+.featured-products-title::after {
+   content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #c49a52;
+  margin: 10px auto 0;
+}
+
+.home-bottom-banner {
+  margin: 40px auto;
+  width: 100%;
+  text-align: center;
+}
+
+.banner-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+
+
+.top-banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.top-banner-image {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
   object-fit: cover;
   border-radius: 10px;
 }
 
-.home-banner {
-  width: 100%;
-  max-height: 500px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 1rem;
+
+
+.section-nav-buttons button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  background-color: #000;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
-.banner-container {
-  padding: 0 1rem;
+.section-nav-buttons button:hover {
+  background-color: #444;
 }
-

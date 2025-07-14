@@ -3,7 +3,10 @@ import Slider from "react-slick";
 import "./BannerSlider.css";
 import banner1 from "../Images/banner1.jpg";
 import banner2 from "../Images/banner2.jpg";
-import banner3 from "../Images/banner3.jpg"; // Add more if needed
+import banner3 from "../Images/banner3.jpg"; 
+import banner4 from "../Images/banner4.jpg";
+import banner5 from "../Images/banner5.jpg";
+
 
 const BannerSlider = () => {
   const settings = {
@@ -17,7 +20,7 @@ const BannerSlider = () => {
     arrows: false,
   };
 
-  const banners = [banner1, banner2, banner3];
+  const banners = [banner1, banner2, banner3,banner4, banner5];
 
   return (
     <div className="banner-slider-container">
@@ -26,7 +29,6 @@ const BannerSlider = () => {
           <div key={index} className="banner-slide">
             <img src={img} alt={`Banner ${index + 1}`} />
             <div className="banner-overlay">
-              <button onClick={() => window.location.href = "/products"}>SHOP NOW</button>
             </div>
           </div>
         ))}

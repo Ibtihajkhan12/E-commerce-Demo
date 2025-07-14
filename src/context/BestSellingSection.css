@@ -1,0 +1,70 @@
+
+.best-selling-section {
+  padding: 40px 5%;
+  background-color: #000;
+  text-align: center;
+}
+
+.best-selling-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+}
+
+.best-selling-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #c49a52;
+  margin: 10px auto 0;
+}
+
+/* Grid setup for exactly 4 cards */
+.product-card-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* ✅ Exactly 4 in one row */
+  gap: 20px;
+  justify-content: center;
+}
+
+.product-card {
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.heart-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  padding: 4px 7px;
+}
+
+.product-name {
+  font-size: 16px;
+  padding: 10px;
+  font-weight: 500;
+  color: #fff;
+}
