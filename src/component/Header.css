@@ -4,7 +4,7 @@ body {
 }
 
 .header {
-  display: flex;
+   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 30px;
@@ -12,12 +12,17 @@ body {
   position: sticky;
   top: 0;
   z-index: 999;
-  margin-top: 0;
-  padding-top: 0;
+  margin-top: 0; 
+  padding-top: 0; 
 }
 
 .logo {
   flex: 1;
+}
+.logo1{
+  height: 70px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
 }
 
 .nav-links {

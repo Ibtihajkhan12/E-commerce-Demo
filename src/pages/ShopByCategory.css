@@ -1,0 +1,49 @@
+.category-detail-container {
+  padding: 2rem;
+  background-color: #fff;
+}
+
+.category-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #222;
+}
+
+.category-grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.category-card {
+  width: 23%;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 1rem;
+  background: #f9f9f9;
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.category-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.category-card:hover {
+  box-shadow: 0 0 12px rgba(0,0,0,0.15);
+}
+
+.price {
+  color: #e91e63;
+  font-weight: bold;
+}
+
+.desc {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.5rem;
+}

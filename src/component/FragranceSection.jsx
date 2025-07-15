@@ -1,4 +1,3 @@
-// src/components/FragranceSection.jsx
 import React from 'react';
 import './FragranceSection.css';
 import { fragranceProducts } from '../data/fragranceProducts';
