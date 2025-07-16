@@ -1,4 +1,3 @@
-// src/pages/ShopByCategory.jsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./ShopByCategory.css"; // Create this for custom styling
