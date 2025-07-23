@@ -1,10 +1,14 @@
 import React from 'react';
 import './Footer.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function Footer() {
+  const navigate = useNavigate();
+
   return (
     <footer className="footer">
       <div className="footer-content">
+
         <div className="footer-section about">
           <h2>About Us</h2>
           <p>We offer quality fashion products including fragrances, stitched, and unstitched wear.</p>
@@ -17,6 +21,14 @@ export default function Footer() {
             <li><a href="#best-selling">Best Selling</a></li>
             <li><a href="#fragrance">Fragrances</a></li>
           </ul>
+
+          {/* Admin Panel Button */}
+          <button
+            onClick={() => navigate('/admin')}
+            className="admin-panel-button"
+          >
+            Admin Panel
+          </button>
         </div>
 
         <div className="footer-section subscribe">
@@ -33,12 +45,12 @@ export default function Footer() {
         <p>&copy; {new Date().getFullYear()} Ibtihaj Store. All rights reserved.</p>
       </div>
 
-      {/* WhatsApp Icon - Now inside footer */}
+      {/* WhatsApp Icon */}
       <a
         href="https://wa.me/923412620726"
         target="_blank"
         rel="noopener noreferrer"
-        className="whatsapp-footer-icon"  /* Changed class name */
+        className="whatsapp-footer-icon"
       >
         <img
           src="https://cdn-icons-png.flaticon.com/512/124/124034.png"

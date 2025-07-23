@@ -6,8 +6,9 @@ import Home from "./pages/Home";
 import ProductDetail from "./component/ProductDetail";
 import CartPage from "./pages/CartPage";
 import ShopByCategory from './pages/ShopByCategory';
-
 import { CartProvider } from './context/CartContext';
+import AdminDashboard from './pages/AdminDashboard';
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -18,6 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/shop-by-category" element={<ShopByCategory />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/admin" element={<AdminDashboard />} />
         </Routes>
       </Router>
     </CartProvider>

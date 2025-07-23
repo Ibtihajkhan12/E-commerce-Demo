@@ -145,3 +145,19 @@
 .whatsapp-icon:hover {
   transform: scale(1.1);
 }
+
+.admin-panel-button {
+  margin-top: 10px;
+  background-color: #1f2937;
+  color: white;
+  padding: 8px 14px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.admin-panel-button:hover {
+  background-color: #111827;
+}

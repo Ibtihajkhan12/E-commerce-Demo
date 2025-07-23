@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './BestSellingSection.css';
-import { allProducts } from '../data/productData'; // ✅ Full data used
+import { allProducts } from '../data/productData';
 
 export default function BestSellingSection() {
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ export default function BestSellingSection() {
     <div className="best-selling-section">
       <h2 className="best-selling-title">BEST SELLING</h2>
       <div className="product-card-row">
-        {allProducts.slice(0, 8).map(product => ( // ✅ Limit to 8 cards if needed
+        {allProducts.slice(0, 8).map(product => ( 
           <div
             key={product.id}
             className="product-card"
